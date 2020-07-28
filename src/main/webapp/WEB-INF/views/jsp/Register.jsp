@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -57,8 +58,12 @@
 				<div class="form-row">
 
 					<div class="form-group col-md-6">
-						<label>Special Entrance</label> <input type="text"
-							class="form-control" name="specialEntrance">
+						<label>Special Entrance</label> <select class="form-control"
+							name="specialEntrance">
+							<c:forEach items="${SElist}" var="item">
+								<option value="${item.propValue}">${item.propValue}</option>
+							</c:forEach>
+						</select>
 					</div>
 
 					<div class="form-group col-md-6">
@@ -76,8 +81,11 @@
 					</div>
 
 					<div class="form-group col-md-6">
-						<label>ID Card</label> <input type="text" class="form-control"
-							name="idCard">
+						<label>ID Card</label> <select class="form-control" name="idCard">
+							<c:forEach items="${IDlist}" var="item">
+								<option value="${item.propValue}">${item.propValue}</option>
+							</c:forEach>
+						</select>
 					</div>
 
 					<div class="form-group col-md-6">
@@ -93,7 +101,8 @@
 					</div>
 				</div>
 				<input class="btn btn-primary" type="submit" value="Register">
-				<input class="btn btn-primary" type="submit" value="Reset"><br><br>
+				<input class="btn btn-primary" type="submit" value="Reset"><br>
+				<br>
 
 				<div class="card-footer text-muted">Copy right x-workz</div>
 			</div>

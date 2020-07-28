@@ -22,20 +22,20 @@
 		<property name="jndiName" value="java:comp/env/jdbc/MyJNDI"></property>
 	</bean>
 
-	<bean
+	<!-- <bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		id="internalResourceViewResolver1">
 		<property name="prefix" value="/"></property>
 		<property name="suffix" value=".jsp"></property>
 		<property name="order" value="1"></property>
-	</bean>
+	</bean> -->
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		id="internalResourceViewResolver2">
 		<property name="prefix" value="/WEB-INF/views/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>
-		<property name="order" value="2"></property>
+		<!-- <property name="order" value="2"></property> -->
 	</bean>
 
 

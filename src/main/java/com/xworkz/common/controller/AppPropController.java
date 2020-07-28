@@ -30,6 +30,8 @@ public class AppPropController {
 		LOGGER.info("invoked init method in\t" + this.getClass().getSimpleName());
 		seList = service.fetchAllByType("SE");
 		idList = service.fetchAllById("ID");
+		LOGGER.info("SELIST: " + seList);
+		LOGGER.info("IDLIST: " + idList);
 
 	}
 
@@ -45,15 +47,12 @@ public class AppPropController {
 			model.addAttribute("IDlist", idList);
 			LOGGER.info("SELIST: " + seList);
 			LOGGER.info("IDLIST: " + idList);
-			
-			
 
 		} catch (Exception e) {
 			LOGGER.error(e.getMessage(), e);
 
 		}
 		return "Register";
-		
 
 	}
 

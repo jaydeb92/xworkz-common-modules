@@ -1,5 +1,7 @@
 package com.xworkz.common.service;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
@@ -26,20 +28,39 @@ public class AppPropServiceImpl implements AppPropService {
 
 	public List<AppPropDTO> fetchAllByType(String type) {
 		try {
-			if (Objects.nonNull(type)) {
-				LOGGER.info("invoked fetchAllByType method in \t" + this.getClass().getSimpleName());
-				LOGGER.info("type not null can fetch properties.." + type);
-				AppPropEntity entity = new AppPropEntity();
-				LOGGER.info("created AppPropEntity object");
-				AppPropDTO dto = new AppPropDTO();
-				LOGGER.info("created AppPropDTO object");
-				LOGGER.info("copying data from entity to dto");
-				BeanUtils.copyProperties(entity, dto);
-				List<AppPropEntity> entities = appPropDAO.fetchAllByType(type);
-				//return (List<AppPropDTO>) dto;
+			LOGGER.info("invoked fetchAllByType method in \t" + this.getClass().getSimpleName() + type);
+			List<AppPropEntity> fetchEntities = appPropDAO.fetchAllByType(type);
+			LOGGER.info("fetchEntities\t" + fetchEntities);
 
+			if (Objects.nonNull(fetchEntities)) {
+
+				LOGGER.info("fetchEntities not null can fetch properties.." + type);
+
+				List<AppPropDTO> listDTO = new LinkedList<AppPropDTO>();
+
+				for (AppPropEntity fetchEntities1 : fetchEntities) {
+
+					AppPropDTO dto = new AppPropDTO();
+					LOGGER.info("created AppPropDTO object");
+					LOGGER.info("copying data from entity to dto");
+					BeanUtils.copyProperties(fetchEntities1, dto);
+					listDTO.add(dto);
+					LOGGER.info("listDTO\t" + listDTO);
+				}
+
+				/*
+				 * fetchEntities.forEach(e -> { AppPropDTO dto = new
+				 * AppPropDTO(); LOGGER.info("created AppPropDTO object");
+				 * LOGGER.info("copying data from entity to dto");
+				 * BeanUtils.copyProperties(dto, fetchEntities);
+				 * listDTO.add(dto); LOGGER.info("listDTO\t" + listDTO);
+				 * 
+				 * });
+				 */
+				return listDTO;
 			} else {
-				LOGGER.info("type  null can not fetch properties.." + type);
+				LOGGER.info("fetchEntities  null can not fetch properties.." + type);
+				return null;
 
 			}
 
@@ -52,20 +73,37 @@ public class AppPropServiceImpl implements AppPropService {
 
 	public List<AppPropDTO> fetchAllById(String id) {
 		try {
-			if (Objects.nonNull(id)) {
-				LOGGER.info("invoked fetchAllById method in \t" + this.getClass().getSimpleName());
-				LOGGER.info("type not null can fetch properties.." + id);
-				AppPropEntity entity = new AppPropEntity();
-				LOGGER.info("created AppPropEntity object");
-				AppPropDTO dto = new AppPropDTO();
-				LOGGER.info("created AppPropDTO object");
-				LOGGER.info("copying data from entity to dto");
-				BeanUtils.copyProperties(entity, dto);
-				List<AppPropEntity> entities = appPropDAO.fetchAllById(id);
-				//return (List<AppPropDTO>) dto;
+			LOGGER.info("invoked fetchAllByType method in \t" + this.getClass().getSimpleName() + id);
+			List<AppPropEntity> fetchEntities = appPropDAO.fetchAllByType(id);
+			LOGGER.info("fetchEntities\t" + fetchEntities);
 
+			if (Objects.nonNull(fetchEntities)) {
+
+				LOGGER.info("fetchEntities not null can fetch properties.." + id);
+
+				List<AppPropDTO> listDTO = new ArrayList<AppPropDTO>();
+
+				for (AppPropEntity fetchEntities1 : fetchEntities) {
+
+					AppPropDTO dto = new AppPropDTO();
+					LOGGER.info("created AppPropDTO object");
+					LOGGER.info("copying data from entity to dto");
+					BeanUtils.copyProperties(fetchEntities1, dto);
+					listDTO.add(dto);
+					LOGGER.info("listDTO\t" + listDTO);
+				}
+
+				/*
+				 * fetchEntities.forEach(e -> { AppPropDTO dto = new
+				 * AppPropDTO(); LOGGER.info("created AppPropDTO object");
+				 * LOGGER.info("copying data from entity to dto");
+				 * BeanUtils.copyProperties(fetchEntities, dto);
+				 * listDTO.add(dto); LOGGER.info("listDTO\t" + listDTO); });
+				 */
+				return listDTO;
 			} else {
-				LOGGER.info("type  null can not fetch properties.." + id);
+				LOGGER.info("fetchEntities  null can not fetch properties.." + id);
+				return null;
 
 			}
 
