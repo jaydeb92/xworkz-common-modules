@@ -8,8 +8,11 @@
 
 		<property name="show_sql">true</property>
 		<property name="format_sql">true</property>
-		
+
+
 		<mapping class="com.xworkz.common.entity.AppPropEntity" />
+		<mapping class="com.xworkz.common.entity.PersonalInfoEntity" />
+		<mapping class="com.xworkz.common.entity.VisitingInfoEntity" />
 
 	</session-factory>
 </hibernate-configuration>
