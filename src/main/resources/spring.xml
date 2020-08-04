@@ -22,13 +22,10 @@
 		<property name="jndiName" value="java:comp/env/jdbc/MyJNDI"></property>
 	</bean>
 
-	<!-- <bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-		id="internalResourceViewResolver1">
-		<property name="prefix" value="/"></property>
-		<property name="suffix" value=".jsp"></property>
-		<property name="order" value="1"></property>
-	</bean> -->
+	<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
+		id="internalResourceViewResolver1"> <property name="prefix" value="/"></property> 
+		<property name="suffix" value=".jsp"></property> <property name="order" value="1"></property> 
+		</bean> -->
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
@@ -36,6 +33,24 @@
 		<property name="prefix" value="/WEB-INF/views/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>
 		<!-- <property name="order" value="2"></property> -->
+	</bean>
+
+	<bean class="org.springframework.mail.javamail.JavaMailSenderImpl"
+		id="javaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com"></property>
+		<property name="username" value="*****"></property>
+		<property name="password" value="*****"></property>
+
+		<property name="javaMailProperties">
+			<props>
+				<!-- <prop key="mail.transport.protocol">smtp</prop> -->
+				<prop key="mail.smtp.port">587</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<!-- <prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop> -->
+				<prop key="mail.debug">true</prop>
+			</props>
+		</property>
 	</bean>
 
 

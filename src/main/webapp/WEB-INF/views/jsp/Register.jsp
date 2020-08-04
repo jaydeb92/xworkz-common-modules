@@ -13,7 +13,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="landing.do" method="post">
+	<center><h4>${message}</h4></center>
+	<form action="register.do" method="post">
 
 		<div class="card text-center"
 			style="width: 50rem; margin-top: 20px; margin-left: 200px;">
@@ -61,7 +62,7 @@
 						<label>Special Entrance</label> <select class="form-control"
 							name="specialEntrance">
 							<c:forEach items="${SElist}" var="item">
-								<option value="${item.propValue}">${item.propValue}</option>
+								<option value="${item.propValue}">${item.propName}</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -83,7 +84,7 @@
 					<div class="form-group col-md-6">
 						<label>ID Card</label> <select class="form-control" name="idCard">
 							<c:forEach items="${IDlist}" var="item">
-								<option value="${item.propValue}">${item.propValue}</option>
+								<option value="${item.propValue}">${item.propName}</option>
 							</c:forEach>
 						</select>
 					</div>
