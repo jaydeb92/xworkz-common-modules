@@ -84,4 +84,41 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
 
 	}
 
+	@Override
+	public String validateAndfetchPersonalInfoEntityByEmail(String email) {
+		try {
+			LOGGER.info(" invoked validateAndfetchPersonalInfoEntityByEmail method" + email);
+
+			if (email != null) {
+				PersonalInfoEntity personalInfoEntity = personalInfoDAO.fetchPersonalInfoEntityByEmail(email);
+				LOGGER.info("personalInfoEntity: " + personalInfoEntity);
+				if (personalInfoEntity != null) {
+					TempleRegistrationDTO registrationDTO = new TempleRegistrationDTO();
+					BeanUtils.copyProperties(personalInfoEntity, registrationDTO);
+					VisitingInfoEntity visitingInfoEntity = personalInfoEntity.getVisitingInfoEntity();
+					LOGGER.info("visitingInfoEntity: " + visitingInfoEntity);
+					BeanUtils.copyProperties(visitingInfoEntity, registrationDTO);
+					try {
+						mailService.sendMail(registrationDTO);
+						LOGGER.info("mail sent successfully.");
+
+					} catch (Exception e) {
+						LOGGER.error(e.getMessage(), e);
+					}
+
+					return "Details has been sent..";
+				} else {
+					return "Email id not in registered..";
+				}
+
+			} else {
+				LOGGER.info("Email id is null");
+			}
+
+		} catch (Exception e) {
+			LOGGER.error(e.getMessage(), e);
+		}
+		return null;
+	}
+
 }

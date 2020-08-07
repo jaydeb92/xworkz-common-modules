@@ -19,9 +19,10 @@ import org.apache.log4j.Logger;
 @Table(name = "temple_reg_personal_info_table")
 @NamedQueries({
 		@NamedQuery(name = "fetchCountByEmail", query = "select count(*) from PersonalInfoEntity per where per.email=:Email"),
-		@NamedQuery(name = "fetchCountByMobileNo", query = "select count(*) from PersonalInfoEntity per where per.mobileNo=:MobileNO ")
+		@NamedQuery(name = "fetchCountByMobileNo", query = "select count(*) from PersonalInfoEntity per where per.mobileNo=:MobileNO "),
 
-})
+		@NamedQuery(name = "fetchPersonalInfoEntityByEmail", query = "from PersonalInfoEntity per left join fetch per.visitingInfoEntity where per.email=:Email"),
+		@NamedQuery(name = "checkMailExistingForgeneratePassword", query = "select count(*) from PersonalInfoEntity per where per.email=:Email") })
 public class PersonalInfoEntity implements Serializable {
 
 	private static final Logger LOGGER = Logger.getLogger(PersonalInfoEntity.class);
