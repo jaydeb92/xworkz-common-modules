@@ -5,4 +5,6 @@ import com.xworkz.common.dto.TempleRegistrationDTO;
 public interface PersonalInfoService {
 	public String saveAndValidatePersonalInfoEntity(TempleRegistrationDTO dto);
 
+	public String validateAndfetchPersonalInfoEntityByEmail(String email);
+
 }

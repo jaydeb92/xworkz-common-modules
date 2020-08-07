@@ -12,6 +12,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.xworkz.common.dto.TempleRegistrationDTO;
 import com.xworkz.common.service.PersonalInfoService;
@@ -43,6 +44,19 @@ public class TempleRegistrationController {
 
 			model.addAttribute("message", regInfoMessage);
 
+		} catch (Exception e) {
+			LOGGER.error(e.getMessage(), e);
+		}
+		return "Register";
+
+	}
+
+	@RequestMapping(value = "/sendDetails.do", method = RequestMethod.POST)
+	public String sendMailAfterRegister(@RequestParam String email, Model model) {
+		try {
+			LOGGER.info("invoked sendMailAfterRegister method in TempleRegistrationController class");
+			String mailInfoMessage = personalInfoService.validateAndfetchPersonalInfoEntityByEmail(email);
+			model.addAttribute("message", mailInfoMessage);
 		} catch (Exception e) {
 			LOGGER.error(e.getMessage(), e);
 		}

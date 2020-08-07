@@ -24,22 +24,23 @@
 
 	<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
 		id="internalResourceViewResolver1"> <property name="prefix" value="/"></property> 
-		<property name="suffix" value=".jsp"></property> <property name="order" value="1"></property> 
+		<property name="suffix" value=".jsp"></property> <property name="order" value="0"></property> 
 		</bean> -->
+
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		id="internalResourceViewResolver2">
 		<property name="prefix" value="/WEB-INF/views/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>
-		<!-- <property name="order" value="2"></property> -->
+		<property name="order" value="1"></property>
 	</bean>
 
 	<bean class="org.springframework.mail.javamail.JavaMailSenderImpl"
 		id="javaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com"></property>
-		<property name="username" value="*****"></property>
-		<property name="password" value="*****"></property>
+		<property name="username" value="jaydeb.dey1992@gmail.com"></property>
+		<property name="password" value="welcomejob@444"></property>
 
 		<property name="javaMailProperties">
 			<props>

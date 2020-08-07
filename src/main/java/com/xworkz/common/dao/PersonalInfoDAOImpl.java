@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.xworkz.common.entity.PersonalInfoEntity;
+import com.xworkz.common.entity.VisitingInfoEntity;
 
 @Repository
 public class PersonalInfoDAOImpl implements PersonalInfoDAO {
@@ -78,6 +79,30 @@ public class PersonalInfoDAOImpl implements PersonalInfoDAO {
 			LOGGER.info("closed session in fetchCountByMobileNo in PersonalInfoDAOImpl class");
 		}
 		return (long) 0;
+	}
+
+	@Override
+	public PersonalInfoEntity fetchPersonalInfoEntityByEmail(String email) {
+		Session session = null;
+		try {
+			LOGGER.info("start: fetchPersonalInfoEntityByEmail method in PersonalInfoDAOImpl class\t" + email);
+			session = factory.openSession();
+			Query query = session.getNamedQuery("fetchPersonalInfoEntityByEmail");
+			Query query2 = query.setParameter("Email", email);
+			LOGGER.info("Query of fetchPersonalInfoEntityByEmail:  " + query2);
+			PersonalInfoEntity personalInfoEntity = (PersonalInfoEntity) query.uniqueResult();
+			LOGGER.info("personalInfoEntity:  " + personalInfoEntity);
+			// VisitingInfoEntity visitingInfoEntity =
+			// personalInfoEntity.getVisitingInfoEntity();
+			// LOGGER.info("visitingInfoEntity: " + visitingInfoEntity);
+			return personalInfoEntity;
+		} catch (Exception e) {
+			LOGGER.error(e.getMessage(), e);
+		} finally {
+			session.close();
+			LOGGER.info("closed session in fetchPersonalInfoEntityByEmail in PersonalInfoDAOImpl class");
+		}
+		return null;
 	}
 
 }

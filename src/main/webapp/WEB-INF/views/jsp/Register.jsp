@@ -13,12 +13,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<center><h4>${message}</h4></center>
+	<center>
+		<h4>${message}</h4>
+	</center>
 	<form action="register.do" method="post">
 
 		<div class="card text-center"
 			style="width: 50rem; margin-top: 20px; margin-left: 200px;">
-			<div class="card-header">Temple Registration</div>
+			<div class="card-header">
+				Temple Registration <a href="SendDetails.jsp">ResendDetails</a> <a
+					href="Login.jsp">Login</a>
+			</div>
 			<div class="card-body">
 
 				<div class="form-row">
@@ -102,12 +107,23 @@
 					</div>
 				</div>
 				<input class="btn btn-primary" type="submit" value="Register">
-				<input class="btn btn-primary" type="submit" value="Reset"><br>
-				<br>
+				<input class="btn btn-primary" type="submit" value="Reset">
+
+
+				<!-- <button class="btn btn-primary" type="button"
+					onclick="location.href =/WEB-INF/views/jsp/SendDetails.jsp">RequestDetails</button> -->
+				<!-- <button class="btn btn-primary" type="button"
+					onclick="javascript:window.location=SendDetails.jsp">RequestDetails</button> -->
+				<!-- <input class="btn btn-primary" type="submit"
+					onclick="javascript:window.location=SendDetails.jsp"
+					value="RequestDetails"> -->
+
+				<br> <br>
 
 				<div class="card-footer text-muted">Copy right x-workz</div>
 			</div>
 	</form>
+
 </body>
 </html>
 

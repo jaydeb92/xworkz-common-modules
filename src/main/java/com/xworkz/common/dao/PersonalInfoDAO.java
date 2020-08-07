@@ -10,4 +10,6 @@ public interface PersonalInfoDAO {
 
 	public Long fetchCountByMobileNo(Long mobileNo);
 
+	public PersonalInfoEntity fetchPersonalInfoEntityByEmail(String email);
+
 }
