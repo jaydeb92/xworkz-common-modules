@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.xworkz.common.entity.PersonalInfoEntity;
-import com.xworkz.common.entity.VisitingInfoEntity;
 
 @Repository
 public class PersonalInfoDAOImpl implements PersonalInfoDAO {

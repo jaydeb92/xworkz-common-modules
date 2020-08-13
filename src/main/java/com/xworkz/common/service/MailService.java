@@ -6,8 +6,8 @@ public interface MailService {
 
 	public void sendMail(TempleRegistrationDTO dto);
 
-	public char[] generatePassword();
-
 	public void sendPasswordByMail(String email);
+
+	public void reSendPasswordByMail(String email);
 
 }

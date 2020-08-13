@@ -60,7 +60,7 @@ public class TempleRegistrationController {
 		} catch (Exception e) {
 			LOGGER.error(e.getMessage(), e);
 		}
-		return "Register";
+		return "SendDetails";
 
 	}
 

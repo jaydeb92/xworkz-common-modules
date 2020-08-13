@@ -21,17 +21,18 @@ public class LoginController {
 		LOGGER.info("created\t" + this.getClass().getSimpleName());
 	}
 
-	@RequestMapping(value = "/sendPassword.do", method = RequestMethod.POST)
-	public String sendPassword(@RequestParam String email, Model model) {
+	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
+	public String doLogin(@RequestParam String email, @RequestParam String password, Model model) {
 		try {
-			LOGGER.info("invoked sendPassword method in LoginController class");
-			String passwordInfoMessage = loginService.sendGeneratedPassword(email);
-			model.addAttribute("message", passwordInfoMessage);
+			LOGGER.info("invoked doLogin LoginController");
+			String loginMessage = loginService.login(email, password);
+			model.addAttribute("message", loginMessage);
+
 		} catch (Exception e) {
 			LOGGER.error(e.getMessage(), e);
 		}
 
-		return "Register";
+		return "Login";
 
 	}
 
