@@ -19,8 +19,8 @@
 		<div class="card text-center"
 			style="width: 50rem; margin-top: 20px; margin-left: 200px;">
 			<div class="card-header">
-				Send Registration Info <a href="Register.jsp">Register</a> <a
-					href="Login.jsp">Login</a>
+				Send Registration Info <a href="registration.do">Register</a> <a
+					href="loginPage.do">Login</a>
 			</div>
 			<div class="card-body">
 

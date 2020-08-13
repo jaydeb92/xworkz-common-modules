@@ -8,19 +8,19 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
-<title>LoginPage</title>
+<title>Insert title here</title>
 </head>
 <body>
 	<center>
 		<h4>${message}</h4>
 	</center>
-	<form action="sendDetails.do" method="post">
+	<form action="sendPassword.do" method="post">
 
 		<div class="card text-center"
 			style="width: 50rem; margin-top: 20px; margin-left: 200px;">
 			<div class="card-header">
-				X-workz <a href="Register.jsp">Register</a> <a
-					href="SendDetails.jsp">ResendDetails</a>
+				X-workz <a href="registration.do">Register</a> <a href="resend.do">ResendDetails</a>
+				<a href="loginPage.do">Login</a>
 			</div>
 			<div class="card-body">
 
@@ -32,16 +32,10 @@
 						<label>Email</label> <input type="email" class="form-control"
 							name="email">
 					</div>
-					<div class="form-group col-md-4"></div>
-					<div class="form-group col-md-4"></div>
-					<div class="form-group col-md-4">
-						<label>Password</label> <input type="password"
-							class="form-control" name="password">
-					</div>
 				</div>
 
-				<input class="btn btn-primary" type="submit" value="Login">
-				<a href="GeneratePassword.jsp">FirstTimeLogin</a> <br> <br>
+				<input class="btn btn-primary" type="submit"
+					value="GeneratePassword"><br> <br>
 
 				<div class="card-footer text-muted">Copy right x-workz</div>
 			</div>

@@ -21,8 +21,8 @@
 		<div class="card text-center"
 			style="width: 50rem; margin-top: 20px; margin-left: 200px;">
 			<div class="card-header">
-				Temple Registration <a href="SendDetails.jsp">ResendDetails</a> <a
-					href="Login.jsp">Login</a>
+				Temple Registration <a href="resend.do">ResendDetails</a> <a
+					href="loginPage.do">Login</a>
 			</div>
 			<div class="card-body">
 

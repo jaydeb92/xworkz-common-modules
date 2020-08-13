@@ -22,6 +22,7 @@ public class TempleRegistrationDTO implements Serializable {
 	private String idCard;
 	private Long idNumber;
 	private String poojaType;
+	private String password;
 
 	public TempleRegistrationDTO() {
 		LOGGER.info("created\t" + this.getClass().getSimpleName());
@@ -129,6 +130,14 @@ public class TempleRegistrationDTO implements Serializable {
 
 	public void setPoojaType(String poojaType) {
 		this.poojaType = poojaType;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override

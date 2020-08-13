@@ -22,7 +22,8 @@ import org.apache.log4j.Logger;
 		@NamedQuery(name = "fetchCountByMobileNo", query = "select count(*) from PersonalInfoEntity per where per.mobileNo=:MobileNO "),
 
 		@NamedQuery(name = "fetchPersonalInfoEntityByEmail", query = "from PersonalInfoEntity per left join fetch per.visitingInfoEntity where per.email=:Email"),
-		@NamedQuery(name = "checkMailExistingForgeneratePassword", query = "select count(*) from PersonalInfoEntity per where per.email=:Email") })
+		@NamedQuery(name = "checkMailExistingForgeneratePassword", query = "select count(*) from PersonalInfoEntity per where per.email=:Email"),
+		@NamedQuery(name = "fetchEntityByEmail", query = "from PersonalInfoEntity per where per.email=:Email") })
 public class PersonalInfoEntity implements Serializable {
 
 	private static final Logger LOGGER = Logger.getLogger(PersonalInfoEntity.class);
@@ -42,6 +43,12 @@ public class PersonalInfoEntity implements Serializable {
 	private String state;
 	@Column(name = "EMAIL")
 	private String email;
+	@Column(name = "PASSWORD")
+	private String password;
+	@Column(name = "LOGIN_COUNT")
+	private Integer loginCount;
+	@Column(name = "IS_LOCK")
+	private Boolean isLock;
 
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "personalInfoEntity")
 	private VisitingInfoEntity visitingInfoEntity;
@@ -112,6 +119,30 @@ public class PersonalInfoEntity implements Serializable {
 
 	public void setVisitingInfoEntity(VisitingInfoEntity visitingInfoEntity) {
 		this.visitingInfoEntity = visitingInfoEntity;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Integer getLoginCount() {
+		return loginCount;
+	}
+
+	public void setLoginCount(Integer loginCount) {
+		this.loginCount = loginCount;
+	}
+
+	public Boolean getIsLock() {
+		return isLock;
+	}
+
+	public void setIsLock(Boolean isLock) {
+		this.isLock = isLock;
 	}
 
 	@Override
