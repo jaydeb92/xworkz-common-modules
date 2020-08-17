@@ -1,6 +1,7 @@
 package com.xworkz.common.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.apache.log4j.Logger;
@@ -50,8 +51,8 @@ public class PersonalInfoEntity implements Serializable {
 	@Column(name = "IS_LOCK")
 	private Boolean isLock;
 
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "personalInfoEntity")
-	private VisitingInfoEntity visitingInfoEntity;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "personalInfoEntity")
+	private List<VisitingInfoEntity> visitingInfoEntity;
 
 	public PersonalInfoEntity() {
 		LOGGER.info("created\t" + this.getClass().getSimpleName());
@@ -113,14 +114,6 @@ public class PersonalInfoEntity implements Serializable {
 		this.email = email;
 	}
 
-	public VisitingInfoEntity getVisitingInfoEntity() {
-		return visitingInfoEntity;
-	}
-
-	public void setVisitingInfoEntity(VisitingInfoEntity visitingInfoEntity) {
-		this.visitingInfoEntity = visitingInfoEntity;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -143,6 +136,14 @@ public class PersonalInfoEntity implements Serializable {
 
 	public void setIsLock(Boolean isLock) {
 		this.isLock = isLock;
+	}
+
+	public List<VisitingInfoEntity> getVisitingInfoEntity() {
+		return visitingInfoEntity;
+	}
+
+	public void setVisitingInfoEntity(List<VisitingInfoEntity> visitingInfoEntity) {
+		this.visitingInfoEntity = visitingInfoEntity;
 	}
 
 	@Override
