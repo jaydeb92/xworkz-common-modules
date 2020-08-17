@@ -47,4 +47,11 @@ public class HrefController {
 		return "ResendPassword";
 
 	}
+
+	@RequestMapping(value = "/booking.do")
+	public String doNavigateForBookingPage() {
+		LOGGER.info("invoked doNavigateForBookingPage");
+		return "BookingVisit";
+
+	}
 }

@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.apache.log4j.Logger;
@@ -37,8 +37,8 @@ public class VisitingInfoEntity implements Serializable {
 	private Long idNumber;
 	@Column(name = "POOJA_TYPE")
 	private String poojaType;
-	
-	@OneToOne
+
+	@ManyToOne
 	@JoinColumn(name = "ID")
 	private PersonalInfoEntity personalInfoEntity;
 
@@ -125,5 +125,4 @@ public class VisitingInfoEntity implements Serializable {
 				+ idNumber + ", poojaType=" + poojaType + "]";
 	}
 
-	
 }
