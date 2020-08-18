@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,64 +22,61 @@
 			<div class="card-header">X-workz</div>
 			<div class="card-body">
 
-				
 
 
 
 
-					<div class="form-row">
 
-						<div class="form-group col-md-6">
-							<label>Special Entrance</label> <select class="form-control"
-								name="specialEntrance">
-								<c:forEach items="${SElist}" var="item">
-									<option value="${item.propValue}">${item.propName}</option>
-								</c:forEach>
-							</select>
-						</div>
+				<div class="form-row">
 
-						<div class="form-group col-md-6">
-							<label>Date</label> <input type="date" class="form-control"
-								name="date">
-						</div>
-						<div class="form-group col-md-6">
-							<label>No Of People</label> <input type="number"
-								class="form-control" name="noOfPeople">
-						</div>
-
-						<div class="form-group col-md-6">
-							<label>Prasada</label> <input type="text" class="form-control"
-								name="prasada">
-						</div>
-
-						<div class="form-group col-md-6">
-							<label>ID Card</label> <select class="form-control" name="idCard">
-								<c:forEach items="${IDlist}" var="item">
-									<option value="${item.propValue}">${item.propName}</option>
-								</c:forEach>
-							</select>
-						</div>
-
-						<div class="form-group col-md-6">
-							<label>ID Number</label> <input type="number"
-								class="form-control" name="idNumber">
-						</div>
-
-						<div class="form-group col-md-2"></div>
-
-						<div class="form-group col-md-8">
-							<label>Pooja Type</label> <input type="text" class="form-control"
-								name="poojaType">
-						</div>
+					<div class="form-group col-md-6">
+						<label>Special Entrance</label> <select class="form-control"
+							name="specialEntrance">
+							<c:forEach items="${SElist}" var="item">
+								<option value="${item.propValue}">${item.propName}</option>
+							</c:forEach>
+						</select>
 					</div>
-					<input class="btn btn-primary" type="submit" value="Book">
 
+					<div class="form-group col-md-6">
+						<label>Date</label> <input type="date" class="form-control"
+							name="date">
+					</div>
+					<div class="form-group col-md-6">
+						<label>No Of People</label> <input type="number"
+							class="form-control" name="noOfPeople">
+					</div>
 
+					<div class="form-group col-md-6">
+						<label>Prasada</label> <input type="text" class="form-control"
+							name="prasada">
+					</div>
 
-					<a href=" ">Search</a> <br> <br>
+					<div class="form-group col-md-6">
+						<label>ID Card</label> <select class="form-control" name="idCard">
+							<c:forEach items="${IDlist}" var="item">
+								<option value="${item.propValue}">${item.propName}</option>
+							</c:forEach>
+						</select>
+					</div>
 
-					<div class="card-footer text-muted">Copy right x-workz</div>
+					<div class="form-group col-md-6">
+						<label>ID Number</label> <input type="number" class="form-control"
+							name="idNumber">
+					</div>
+
+					<div class="form-group col-md-2"></div>
+
+					<div class="form-group col-md-8">
+						<label>Pooja Type</label> <input type="text" class="form-control"
+							name="poojaType">
+					</div>
 				</div>
+				<input class="btn btn-primary" type="submit" value="Book"> <a
+					href=" ">Search</a> <br> <br>
+
+				<div class="card-footer text-muted">Copy right x-workz</div>
+			</div>
 	</form>
 
 </body>
